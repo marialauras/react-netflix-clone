@@ -11,50 +11,59 @@ const basicFecth = async (url_endpoint) => {
     return( json );
 }
 
-async function get_home_list(){
-    return[
-        {
-            slug: 'originals',
-            title: "Originais do Netflix",
-            items: await basicFecth(`/discover/tv/?with_network=213&language=pt-BR&api_key=${API_KEY}`)
-        },
-        {
-            slug: 'trending',
-            title: "Recomendados para Você",
-            items: await basicFecth(`/trending/all/week?language=pt-BR&api_key=${API_KEY}`)
-        },
-        {
-            slug: 'toprated',
-            title: "Em Alta",
-            items: await basicFecth(`/movie/top_rated?&language=pt-BR&api_key=${API_KEY}`)
-        },
-        {
-            slug: 'action',
-            title: 'Ação',
-            items: await basicFecth(`/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`)
-        },
-        {
-            slug: 'adventure',
-            title: "Aventura",
-            items: await basicFecth(`/discover/movie?with_genres= 12&language=pt-BR&api_key=${API_KEY}`)
-        },
-        {
-            slug: 'comedy',
-            title: "Comédia",
-            items: await basicFecth(`/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`)
-        },
-        {
-            slug: 'romance',
-            title: "Romance",
-            items: await basicFecth(`/discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`)
-        },
-        {
-            slug: 'documentary',
-            title : "Documentários",
-            items : await basicFecth(`/discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
-        },
-    ];
-}
+        async function get_home_list(){
+            return[
+                {
+                    slug: 'originals',
+                    title: "Originais do Netflix",
+                    items: await basicFecth(`/discover/tv/?with_network=213&language=pt-BR&api_key=${API_KEY}`)
+                },
+                {
+                    slug: 'trending',
+                    title: "Recomendados para Você",
+                    items: await basicFecth(`/trending/all/week?language=pt-BR&api_key=${API_KEY}`)
+                },
+                {
+                    slug: 'toprated',
+                    title: "Em Alta",
+                    items: await basicFecth(`/movie/top_rated?&language=pt-BR&api_key=${API_KEY}`)
+                },
+                {
+                    slug: 'action',
+                    title: 'Ação',
+                    items: await basicFecth(`/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`)
+                },
+                {
+                    slug: 'adventure',
+                    title: "Aventura",
+                    items: await basicFecth(`/discover/movie?with_genres= 12&language=pt-BR&api_key=${API_KEY}`)
+                },
+                {
+                    slug: 'comedy',
+                    title: "Comédia",
+                    items: await basicFecth(`/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`)
+                },
+                {
+                    slug: 'romance',
+                    title: "Romance",
+                    items: await basicFecth(`/discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`)
+                },
+                {
+                    slug: 'documentary',
+                    title : "Documentários",
+                    items : await basicFecth(`/discover/movie?with_genres=99&language=pt-BR&api_key=${API_KEY}`)
+                },
+            ];
+        }
 
-export default get_home_list;
+        async function get_movie_info( movie_id, type){
+            let info = await basicFecth('/'+ type+'/'+ movie_id +'?language=pt-BR&api_key='+API_KEY);
+            return info;
+        }
+    
+
+export default {get_home_list, get_movie_info};
+
+
+
 
