@@ -1,0 +1,27 @@
+#movie_row_cp{
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+#movie_row_cp .list_area{
+    overflow-x: hidden;
+}
+
+#movie_row_cp .list_area .list{
+    width: 900vw;
+}
+
+#movie_row_cp .list_area .list .item{
+    display: inline-block;
+    width: 150px;
+    cursor: pointer;
+}
+#movie_row_cp .list_area .list .item img{ 
+    width: 100%;
+    transform: scale(0.9);
+    transition:  all ease 0.2;
+}
+
+#movie_row_cp .list_area .list .item img:hover{
+    transform: scale(1.0);
+}
