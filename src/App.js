@@ -21,7 +21,7 @@ function App() {
 
         //Pegando o filme em destaque
         let originals = list.filter(i=>i.slug === 'originals');
-        let randomMovie = Math.floor(Math.random()* (originals[0].items.results.length - 1) );
+        let randomMovie = Math.floor(Math.random() * (originals[0].items.results.length - 1) );
         let movie = originals[0].items.results[randomMovie];
         let movieInfo = await api.get_movie_info(movie.id,'tv');
         setFeatureData(movieInfo);
@@ -35,7 +35,9 @@ function App() {
 
   return (
     <div className="page">
-        <FeaturedMovie item ={featureData}/>
+        {featureData != null &&
+            <FeaturedMovie item ={featureData}/>
+        }
         <section className="lists">
             {movie_list.map((item, key)=>(
               <MovieRow key={key} title={item.title} list={item.items}/>
