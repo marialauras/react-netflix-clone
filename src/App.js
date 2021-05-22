@@ -34,7 +34,7 @@ function App() {
     },[]);
 
   return (
-    <div className="page">
+    <div id="page">
         {featureData != null &&
             <FeaturedMovie item ={featureData}/>
         }

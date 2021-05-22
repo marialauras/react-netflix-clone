@@ -18,18 +18,18 @@ function FeaturedMovie(props){
         >
             <div className="vertical">
                 <div className="horizontal">
-                    <h3>{props.item.original_name}</h3>
-                    <div className="info">
-                        <p className="featured_points">{props.item.vote_average} pontos</p>
-                        <p className="featured_year">{first_date.getFullYear()}</p>
-                        <p className="featured_seasons">{props.item.number_of_seasons} temporada{props.item.number_of_seasons !== 1 ? 's' : ''}</p>
+                    <h1 className="featured_name">{props.item.original_name}</h1>
+                    <div className="featured_info">
+                        <p>{props.item.vote_average} pontos</p>
+                        <p>{first_date.getFullYear()}</p>
+                        <p>{props.item.number_of_seasons} temporada{props.item.number_of_seasons !== 1 ? 's' : ''}</p>
                     </div>
-                    <p className="description">{props.item.overview}</p>
-                    <div className="buttons">
-                        <button> ▶ Assistir</button>
-                        <button>+ Minha Lista</button>
+                    <p className="featured_description">{props.item.overview}</p>
+                    <div className="featured_buttons">
+                        <button> ▶ Assistir </button>
+                        <button> + Minha Lista </button>
                     </div>
-                    <div className="featured_genres"><b>Gêneros:</b> {genres.join(', ')}</div>
+                    <p className="featured_genres"><b>Gêneros:</b> {genres.join(', ')}</p>
                 </div>
             </div>
         </section>

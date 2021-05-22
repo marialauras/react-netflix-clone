@@ -2,8 +2,6 @@
     height: 100vh;
     background-size: cover;
     background-position: center;
-    margin:0;
-    padding: 0;
 }
 
 #featured_movie_cp .vertical{
@@ -13,7 +11,66 @@
 }
 
 #featured_movie_cp .vertical .horizontal{
+
+    padding-left: 30px;
+    padding-top: 90px;
+    padding-bottom: 150px;
     width: inherit;
     height: inherit;
     background: linear-gradient(to right, #111 30%, transparent 70% );
+}
+
+#featured_movie_cp .vertical .horizontal p, button:nth-child(n){
+    margin-top: 15px;
+}
+
+#featured_movie_cp .vertical .horizontal .featured_name{
+    font-size: 60px;
+    font-weight: bold;
+}
+
+#featured_movie_cp .vertical .horizontal .featured_info{
+    /*tamanho*/
+    width: 280px;
+    /*disposição dos itens*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*fonte*/
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#featured_movie_cp .vertical .horizontal .featured_info p:first-child{
+    color: #46d369;
+}
+
+#featured_movie_cp .vertical .horizontal .featured_description, .featured_genres{
+    font-size: 20px;
+    color: #999;
+    max-width: 40%;
+}
+#featured_movie_cp .vertical .horizontal .featured_buttons button{
+    border: 0;
+    border-radius:5px;
+    display:inline-block;
+    cursor:pointer;
+    font-weight:bold;
+    font-size: 18px;
+    padding:12px 25px;
+    text-decoration:none;
+    margin-right: 15px;
+    opacity: 1;
+    transition: all ease 0.2s;
+}
+#featured_movie_cp .vertical .horizontal .featured_buttons button:hover{
+    opacity: 0.7;
+}
+#featured_movie_cp .vertical .horizontal .featured_buttons button:first-child{
+    background-color: white;
+    color: black;
+}
+#featured_movie_cp .vertical .horizontal .featured_buttons button:last-child{
+    background-color: #333;
+    color: white;
 }
