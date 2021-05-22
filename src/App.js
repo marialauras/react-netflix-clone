@@ -1,6 +1,7 @@
 import reactDom from "react-dom";
 import React, {useEffect, useState} from 'react';
 import api from "./services";
+import Header from './components/Header'
 import MovieRow from './components/MovieRow'
 import FeaturedMovie from './components/FeaturedMovie'
 import './App.css'
@@ -34,16 +35,17 @@ function App() {
     },[]);
 
   return (
-    <div id="page">
-        {featureData != null &&
-            <FeaturedMovie item ={featureData}/>
-        }
+    <>
+   <Header/>
+    <main>
+        {featureData != null && <FeaturedMovie item={featureData}/>}
         <section className="lists">
             {movie_list.map((item, key)=>(
               <MovieRow key={key} title={item.title} list={item.items}/>
             ))}
         </section>
-    </div>
+    </main>
+    </>
   );
 }
 

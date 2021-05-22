@@ -9,6 +9,6 @@ body {
     background-color: #111;
     font-family: 'Roboto', sans-serif;
 }
-#page .lists{ 
+main .lists{ 
     margin-top: -150px;
 }

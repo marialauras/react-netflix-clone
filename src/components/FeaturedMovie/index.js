@@ -11,7 +11,7 @@ function FeaturedMovie(props){
         genres.push( props.item.genres[i].name);
     }
     return(
-        <section id="featured_movie_cp"
+        <header id="featured_movie_cp"
             style={{
                 backgroundImage:`url(${URL}${props.item.backdrop_path})`
             }}
@@ -32,7 +32,7 @@ function FeaturedMovie(props){
                     <p className="featured_genres"><b>Gêneros:</b> {genres.join(', ')}</p>
                 </div>
             </div>
-        </section>
+        </header>
     )
 }
 
