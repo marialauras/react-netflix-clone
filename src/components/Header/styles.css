@@ -7,7 +7,7 @@
     right: 0;
     left: 0;
     padding: 20px 30px;
-    transition: all ease 0.5s;
+    transition: all ease 0.3s;
 }
 #header_cp :first-child{
     width: 120px;

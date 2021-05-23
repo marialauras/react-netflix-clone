@@ -1,16 +1,17 @@
 #movie_row_cp{
-    margin-left: 30px;
     margin-bottom: 30px;
+}
+#movie_row_cp h2{
+    margin-left: 30px;
 }
 
 #movie_row_cp .list_area{
     overflow-x: hidden;
 }
 
-#movie_row_cp .list_area .list{
-    width: 900vw;
+#movie_row_cp .list_area .list {
+    transition: all ease 0.2s;
 }
-
 #movie_row_cp .list_area .list .item{
     display: inline-block;
     width: 150px;
@@ -24,4 +25,33 @@
 
 #movie_row_cp .list_area .list .item img:hover{
     transform: scale(1.0);
+}
+
+#movie_row_cp .arrow_back, .arrow_forward{
+    position:absolute;
+    width: 40px;
+    height: 225px;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+
+    display: flex;
+    justify-items: center;
+    align-items: center;
+
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease 0.5s;
+
+}
+#movie_row_cp .arrow_back{
+    left:0;
+}
+
+#movie_row_cp .arrow_forward{
+    right: 0;
+}
+
+#movie_row_cp:hover .arrow_back,
+#movie_row_cp:hover .arrow_forward{
+    opacity: 1;
 }
