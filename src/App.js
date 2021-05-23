@@ -11,9 +11,14 @@ function App() {
     //Variavél que irá armazenar a lista de filmes
     //Ela é iniciada com array vazio
     const [movie_list, set_movie_list] = useState([]);
+    
     //Variavél que irá armazenar o filme em destaque
     //Ela é iniciada com vazio
-    const [featureData, setFeatureData] = useState(null);
+    const [feature_data, set_feature_data] = useState(null);
+
+    //Variavél que irá armazenar a posição do header
+    //Ela é iniciada com vazio
+    const [header_background, set_header_background] = useState(false);
 
     async function load_all(){
         //Pegando lista total de filmes
@@ -22,23 +27,36 @@ function App() {
 
         //Pegando o filme em destaque
         let originals = list.filter(i=>i.slug === 'originals');
-        let randomMovie = Math.floor(Math.random() * (originals[0].items.results.length - 1) );
-        let movie = originals[0].items.results[randomMovie];
-        let movieInfo = await api.get_movie_info(movie.id,'tv');
-        setFeatureData(movieInfo);
-        console.log(featureData);
+        let random_movie = Math.floor(Math.random() * (originals[0].items.results.length - 1) );
+        let movie = originals[0].items.results[random_movie];
+        let movie_info = await api.get_movie_info(movie.id,'tv');
+        set_feature_data(movie_info);
+    }
+
+    function scroll_listener(){
+        if(window.scrollY > 10){
+            set_header_background(true);
+        }else{
+            set_header_background(false);
+        }
     }
 
     //Ao carregar a página a função é acionada
     useEffect(()=>{
         load_all();
-    },[]);
+        scroll_listener();
+        window.addEventListener('scroll', scroll_listener);
+
+        return () =>{
+          window.removeEventListener('scroll', scroll_listener);
+        }
+      }, []);
 
   return (
     <>
-   <Header/>
+   <Header background={header_background}/>
     <main>
-        {featureData != null && <FeaturedMovie item={featureData}/>}
+        {feature_data != null && <FeaturedMovie item={feature_data}/>}
         <section className="lists">
             {movie_list.map((item, key)=>(
               <MovieRow key={key} title={item.title} list={item.items}/>
