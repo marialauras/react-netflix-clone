@@ -5,6 +5,7 @@ import Header from './components/Header'
 import MovieRow from './components/MovieRow'
 import FeaturedMovie from './components/FeaturedMovie'
 import Footer from './components/Footer'
+import Loading from './components/Loading'
 import './App.css'
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
     </main>
 
     <Footer/>
+    {movie_list.length <= 0 && <Loading/>}
     </>
   );
 }
