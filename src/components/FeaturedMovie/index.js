@@ -7,6 +7,10 @@ const URL = 'https://image.tmdb.org/t/p/original';
 function FeaturedMovie(props){
     let first_date = new Date( props.item.first_air_date);
     let genres = [];
+    let description = props.item.overview;
+    if(description.length > 200){
+        description = description.substring(0,200) + '...';
+    }
     for( let i in props.item.genres){
         genres.push( props.item.genres[i].name);
     }
@@ -24,7 +28,7 @@ function FeaturedMovie(props){
                         <p>{first_date.getFullYear()}</p>
                         <p>{props.item.number_of_seasons} temporada{props.item.number_of_seasons !== 1 ? 's' : ''}</p>
                     </div>
-                    <p className="featured_description">{props.item.overview}</p>
+                    <p className="featured_description">{description}</p>
                     <div className="featured_buttons">
                         <button> ▶ Assistir </button>
                         <button> + Minha Lista </button>
