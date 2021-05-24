@@ -4,6 +4,7 @@ import api from "./services";
 import Header from './components/Header'
 import MovieRow from './components/MovieRow'
 import FeaturedMovie from './components/FeaturedMovie'
+import Footer from './components/Footer'
 import './App.css'
 
 function App() {
@@ -63,6 +64,8 @@ function App() {
             ))}
         </section>
     </main>
+
+    <Footer/>
     </>
   );
 }
