@@ -1,5 +1,5 @@
 //A chave disponibilizada pela API
-const API_KEY = '398edde2163a226a725d32f8e7829b97';
+const API_KEY = 'your_key';
 
 //A parte da URL que sempre irá se repetir
 const API_BASE = 'https://api.themoviedb.org/3'; 
